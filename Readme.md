@@ -1,6 +1,6 @@
-# TP d'introduction à la pratique du lanange C
+# Bases de la Programmation en C. Thème 3.
 
-Ce dépôt correspond au premier TP de PDC, dont le sujet est `tp_theme3.pdf`.
+Ce dépôt correspond au 3e thème de BPC, semaines 5 et 6, dont le sujet est `tp_theme3.pdf`.
 
 ##  Instructions pour rendre votre travail avec gitlab
 
