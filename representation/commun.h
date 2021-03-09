@@ -1,3 +1,9 @@
+/* ------------------------------
+   commun.h
+   Définition des types
+   ------------------------------------------------------------
+*/
+
 struct etudiant_s {
     unsigned int numero;
     float moyenne;
