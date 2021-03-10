@@ -7,7 +7,7 @@
 int
 main (void)
 {
-    int line[MAXLINE];
+    char line[MAXLINE];
     int i,j;
     /* on affiche une ligne de l'entrée standard */
     i = readl(line);
