@@ -18,6 +18,6 @@
    Termine sur une erreur fatale, en utilisant fatal(), si la ligne
      contient plus de MAXLINE caractères. 
  */
-extern int readl(charline[]);
+extern int readl(char line[]);
 
 #endif
