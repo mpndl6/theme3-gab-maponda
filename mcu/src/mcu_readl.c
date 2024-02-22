@@ -2,6 +2,8 @@
 #include <mcu_fatal.h>
 #include <mcu_macros.h>
 
+#define MAXLINE 1024
+
 int readl(char line[]){
 while(1){
     fatal (i==MAXLINE, "Erreur: ligne trop longue \n", -1 );
