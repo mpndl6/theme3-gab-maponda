@@ -29,8 +29,8 @@ int tsrc [SIZE] , tdest [SIZE];
 int index = 0;
 
     for (int i = 0; i < SIZE; i++) {
-      if (tsrc[i] > 0) {
-        tdst[index++] = tsrc[i];
+      if (tdsrc[i] > 0) {
+        tdst[index++] = tdsrc[i];
               }
         }
 
@@ -40,3 +40,20 @@ int index = 0;
 ```
 le index va servir à pourvoir se situé dans le tableau.
 
+##### Exercice 2 
+
+- Prototype d'une fonction donc la déclaration de la fonction avec son nom, 
+son type de retour et ses paramètres, sans inclure le corps de la fonction.
+
+on aurait par exemple: 
+void copie_tab(char tdst[], char tdsrc[]);
+
+- Donner un corps à la fonction : 
+```
+  void copie_tab(char tdst[], char tdsrc[]){
+        for (int i=0; i < SIZE; i++){
+            if (tdsrc[i] == '0')
+                break
+            tdest[i] = tdsrc[i]
+    }
+```
