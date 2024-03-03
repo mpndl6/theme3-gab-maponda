@@ -45,6 +45,8 @@ clean:
 	rm -f src/*.o
 	rm -f src/*.gch
 
+move:
+
 
 .PHONY: all clean
 
