@@ -65,3 +65,18 @@ objets (.o) qui vont nous servir.
 
 mcu_test.c utilise les fonctions putchar etc. On voudrait ajouter un fichier putint.c qui regroupe les fonctions nécéssaires
 utilisaient au thème précédent.
+
+Après avoir définit toutes les règles nécéssaires  et crée les dépendances utiles à mcu_test, nous pouvons réaliser un make all.
+
+```
+./mcu/$ make all
+gcc -ansi -Wall -pedantic src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_readl.o src/obj/mcu_fatal.o -o build/mcu_test
+
+
+./mcu/$ ./build/mcu_test < src/mcu_test.c; echo "le code de retour est $?" 
+#include <stdio.h>
+
+19
+1==0 is not true
+le code de retour est 2
+```
