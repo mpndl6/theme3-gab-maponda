@@ -1,6 +1,7 @@
 CFLAGS=-ansi -Wall -pedantic
 SRCDIR = src/obj/
 CC = gcc
+BUILD = build/
 
 all: input output
 
@@ -26,10 +27,10 @@ mcu_test.o: src/mcu_test.c src/mcu_macros.h src/mcu_fatal.h src/mcu_readl.h src/
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
 mcu_putint.o: src/mcu_putint.c
-	$(CC) $(CFLAGS) -c $(SRC)$@
+	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
 mcu_test: src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_readl.o src/obj/mcu_fatal.o
-	$(CC) $(CFLAGS) ^$ -o $(BUILD)$@
+	$(CC) $(CFLAGS) $^ -o $(BUILD)$@
 
 clean:
 	rm -f $(SRCDIR)*.o
