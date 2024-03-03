@@ -22,8 +22,8 @@ mcu_readl.o: src/mcu_readl.h
 mcu_putint.o: src/mcu_putint.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-mcu_test.o: src/mcu_test.c src/mcu_macros.h src/mcu_fatal.h src/mcu_readl.h src/mcu_putint.h
-	$(CC) $(CFLAGS) -c $^ -o $(SRCDIR)$@
+mcu_test.o: src/mcu_test.c
+	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
 main :
 
