@@ -26,3 +26,20 @@ int comparer(char chaine1[], char chaine2[]) {
     return 0;
 } // la fonction retourne 0 si tout s'est bien passée contrairement en td ou elle retournait 1 si ça s'était mal passé
 
+int main() {
+    char tab[MAXLINE];
+    char copie[MAXLINE];
+    char c;
+    int i = 0;
+    while ((c = readl(tab)) != EOF) {
+        if (!comparer(copie, tab)) {
+            while ((c = tab[i]) != '\0') {
+                putchar(c);
+                i++;
+            }
+            i = 0;
+        }
+        copier(copie, tab);
+    }
+    return 0;
+}
