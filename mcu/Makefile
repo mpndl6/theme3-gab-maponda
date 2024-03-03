@@ -39,6 +39,13 @@ mcu_rev.o: $(SRCDIR)mcu_rev.c
 mcu_rev: $(SRCDIR)mcu_rev.o $(SRCDIR)mcu_readl.o $(SRCDIR)mcu_fatal.o
 	$(CC) $(CFLAGS) -o $(BUILD)$@ $^
 
+mcu_uniq.o : $(SRCDIR)mcu_uniq.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+mcu_uniq: $(SRCDIR)mcu_uniq.o  $(SRCDIR)mcu_readl.o $(SRCDIR)mcu_fatal.o
+	$(CC) $(CFLAGS) $^ -o $(BUILD)$@
+
+
 clean:
 	rm -f $(SRCDIR)*.o
 	rm -f $(SRCDIR)*.gch
@@ -46,6 +53,7 @@ clean:
 	rm -f src/*.gch
 
 move:
+	mv src/*.o src/obj/
 
 
 .PHONY: all clean
