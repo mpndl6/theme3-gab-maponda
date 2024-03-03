@@ -30,13 +30,13 @@ mcu_putint.o: src/mcu_putint.c
 
 main :
 
-test: input output
-	./output > data.bin
-	./input < data.bin
-	hd ./data.bin
 
 clean:
-	rm -f *.o output input data.bin
+	rm -f $(SRCDIR)*.o
+	rm -f $(SRCDIR)*.gch
+	rm -f *.o
+	rm -f *.gch
+
 
 .PHONY: all clean
 
