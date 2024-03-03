@@ -11,4 +11,8 @@ void copier(char cible[], char source[]) {
     }
     cible[i+1] = '\0';
 }
+/* Si la cible à une taille trop courte pour contenir la taille du tableau alors elle écrira des données en mémoire
+ * en dehors du tableau ce qui peut poser problème. C'est pour ça que l'on voudra s'assurer que la cible puisse contenir
+ * les valeurs de source
+ * */
 
