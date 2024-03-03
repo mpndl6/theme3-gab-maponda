@@ -1,6 +1,7 @@
 #include <stdlib.h>
-#include <mcu_fatal.h>
-#include <mcu_macros.h>
+#include <stdio.h>
+#include "mcu_fatal.h"
+#include "mcu_macros.h"
 
 int readl(char line[]) {
     int c, i = 0;
