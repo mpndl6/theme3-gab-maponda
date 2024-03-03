@@ -1,14 +1,16 @@
 CFLAGS=-ansi -Wall -pedantic
+SRCDIR = src
+CC = gcc
 
 all: input output
 
-input: input.o
+main: mcu_fatal.o mcu_readl.o mcu_test.c
 
 output: output.o
 
-input.o: input.c commun.h
+input.o: ../representation/input.c commun.h
 
-output.o: output.c commun.h
+output.o: ../representation/output.c commun.h
 
 test: input output
 	./output > data.bin
