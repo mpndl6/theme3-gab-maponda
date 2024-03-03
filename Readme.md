@@ -14,6 +14,10 @@ Voyez les instructions précises dans le sujet de TP.
 
  * Dossier mcu/ correspondant au travail de la première semaine sur "Mes Commandes Unix"
  * Dossier representation/ correspondant au travail de la deuxieme semaine, sur la représentation en suite d'octets des structures
+ * Dossier src/obj contenant les fichiers objets ignorés par le .gitignore
+ * Après génération des fichiers objets, la commande ```make move ``` déplcara ces fichiers vers ce repectoire.
+ * Les commandes s'effectue dans le repectoire mcu/. 
+ * La mention ``` ./mcu``` indique le chemin absolu vers ce repectoire
  
 ##### Exercice 1 
 ```
@@ -79,4 +83,43 @@ gcc -ansi -Wall -pedantic src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_re
 19
 1==0 is not true
 le code de retour est 2
+```
+
+##### Exercice 5
+
+On crée les fichers sources mcu_wl et mcu_wc qui implémentent ces deux fonctions.
+Ensuite dans le Makefile nous ajoutons les commandes nécéssaire au fichiers exécutables en inculant les dépendances nécéssaires.
+
+```
+./mcu/$ make mcu_wl
+
+gcc -ansi -Wall -pedantic   -c -o src/mcu_wl.o src/mcu_wl.c
+gcc -ansi -Wall -pedantic src/mcu_wl.o -o build/mcu_wl
+```
+On exécute la commande comme dans l'exercice :
+
+```
+./mcu/$ echo "Hello\nUnix\nWorld" | ./build/mcu_wl
+3
+```
+
+Ensuite nous faisons pareil avec le fichier mcu_wc.
+
+```
+./mcu/$ echo 'Hello Unix World!' | ./build/mcu_wc
+18
+```
+
+##### Exercice 6
+La fonction est dépendante de la fonction readl donc dans les commandes makefile on fait attention de mettre les dépendances nécéssaires.
+après avoir crée l'exécutable à l'aide la commande ``` make mcu_rev```, nous testons l'exemple comme dans l'exercice :
+```
+./mcu/$ echo "Hello World" > essai
+./mcu/$  echo "Hello Unix World!" >> essai
+
+./mcu/$ ./build/mcu_rev < essai            
+
+dlroW olleH
+
+!dlroW xinU olleH
 ```
