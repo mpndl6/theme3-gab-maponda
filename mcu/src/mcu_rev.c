@@ -13,7 +13,7 @@ void rev(char tab[MAXLINE]) {
     }
 }
 
-int main() {
+int main(void) {
     char tab[MAXLINE];
     char c;
     int i = 0;

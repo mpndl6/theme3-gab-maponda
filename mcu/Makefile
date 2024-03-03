@@ -33,6 +33,12 @@ mcu_wl: $(SRCDIR)mcu_wl.o
 mcu_wc: $(SRCDIR)mcu_wc.c
 	$(CC) $(CFLAGS) -o $(BUILD)$@ $^
 
+mcu_rev.o: $(SRCDIR)mcu_rev.c
+	$(CC) $(CFLAGS) -c $^ -o $(SRCDIR)$@
+
+mcu_rev: $(SRCDIR)mcu_rev.o $(SRCDIR)mcu_readl.o $(SRCDIR)mcu_fatal.o
+	$(CC) $(CFLAGS) -o $(BUILD)$@ $^
+
 clean:
 	rm -f $(SRCDIR)*.o
 	rm -f $(SRCDIR)*.gch
