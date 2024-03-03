@@ -1,7 +1,8 @@
 CFLAGS=-ansi -Wall -pedantic
-SRCDIR = src/obj/
+SRCDIR = src/
 CC = gcc
-BUILD = build/
+BUILD =build/
+OBJECT =
 
 all: mcu_test
 
@@ -14,29 +15,26 @@ mcu_readl.o: src/mcu_readl.c src/mcu_fatal.h src/mcu_macros.h
 mcu_macros.o: src/mcu_macros.h
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
-mcu_fatalh.o: src/mcu_fatal.h
-	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
-
-mcu_readlh.o: src/mcu_readl.h
-	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
-
-mcu_putinth.o: src/mcu_putint.h
-	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
-
 mcu_test.o: src/mcu_test.c src/mcu_macros.h src/mcu_fatal.h src/mcu_readl.h src/mcu_putint.h
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
 mcu_putint.o: src/mcu_putint.c
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
-mcu_test: src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_readl.o src/obj/mcu_fatal.o
+mcu_test: src/mcu_test.o src/mcu_putint.o src/mcu_readl.o src/mcu_fatal.o
+	$(CC) $(CFLAGS) -o $(BUILD)$@ $^
+
+mcu_wl.o: src/mcu_wl.c
+	$(CC) $(CFLAGS) -c $^ -o $(SRCDIR)$@
+
+mcu_wl: $(SRCDIR)mcu_wl.o
 	$(CC) $(CFLAGS) $^ -o $(BUILD)$@
 
 clean:
 	rm -f $(SRCDIR)*.o
 	rm -f $(SRCDIR)*.gch
-	rm -f *.o
-	rm -f *.gch
+	rm -f src/*.o
+	rm -f src/*.gch
 
 
 .PHONY: all clean
