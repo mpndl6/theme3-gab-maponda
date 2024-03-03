@@ -28,8 +28,8 @@ mcu_test.o: src/mcu_test.c src/mcu_macros.h src/mcu_fatal.h src/mcu_readl.h src/
 mcu_putint.o: src/mcu_putint.c
 	$(CC) $(CFLAGS) -c $(SRC)$@
 
-main :
-
+mcu_test: src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_readl.o src/obj/mcu_fatal.o
+	$(CC) $(CFLAGS) ^$ -o $(BUILD)$@
 
 clean:
 	rm -f $(SRCDIR)*.o
