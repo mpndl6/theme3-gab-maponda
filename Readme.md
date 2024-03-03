@@ -4,11 +4,11 @@ Ce dépôt correspond au 3e thème de BPC, semaines 5 et 6, dont le sujet est à
 
 ###  Instructions pour rendre votre travail avec gitlab
 
-TP 
-Gabrielle Maponda 
+TP
+Gabrielle Maponda
 Annie-Neilla Kobako
 
-Voyez les instructions précises dans le sujet de TP. 
+Voyez les instructions précises dans le sujet de TP.
 
 ### Contenu de ce dépôt
 
@@ -16,10 +16,10 @@ Voyez les instructions précises dans le sujet de TP.
  * Dossier representation/ correspondant au travail de la deuxieme semaine, sur la représentation en suite d'octets des structures
  * Dossier src/obj contenant les fichiers objets ignorés par le .gitignore
  * Après génération des fichiers objets, la commande ```make move ``` déplcara ces fichiers vers ce repectoire.
- * Les commandes s'effectue dans le repectoire mcu/. 
+ * Les commandes s'effectue dans le repectoire mcu/.
  * La mention ``` ./mcu``` indique le chemin absolu vers ce repectoire
- 
-##### Exercice 1 
+
+##### Exercice 1
 ```
 #define SIZE 12
 int tsrc [SIZE] , tdest [SIZE];
@@ -44,15 +44,15 @@ int index = 0;
 ```
 le index va servir à pourvoir se situé dans le tableau.
 
-##### Exercice 2 
+##### Exercice 2
 
-- Prototype d'une fonction donc la déclaration de la fonction avec son nom, 
+- Prototype d'une fonction donc la déclaration de la fonction avec son nom,
 son type de retour et ses paramètres, sans inclure le corps de la fonction.
 
-on aurait par exemple: 
+on aurait par exemple:
 void copie_tab(char tdst[], char tdsrc[]);
 
-- Donner un corps à la fonction : 
+- Donner un corps à la fonction :
 ```
   void copie_tab(char tdst[], char tdsrc[]){
         for (int i=0; i < SIZE; i++){
@@ -64,7 +64,7 @@ void copie_tab(char tdst[], char tdsrc[]);
 
 ##### Exercice 4
 
-On ajoute d'abord les commandes nécéssaires pour crée les fichiers 
+On ajoute d'abord les commandes nécéssaires pour crée les fichiers
 objets (.o) qui vont nous servir.
 
 mcu_test.c utilise les fonctions putchar etc. On voudrait ajouter un fichier putint.c qui regroupe les fonctions nécéssaires
@@ -77,7 +77,7 @@ Après avoir définit toutes les règles nécéssaires  et crée les dépendance
 gcc -ansi -Wall -pedantic src/obj/mcu_test.o src/obj/mcu_putint.o src/obj/mcu_readl.o src/obj/mcu_fatal.o -o build/mcu_test
 
 
-./mcu/$ ./build/mcu_test < src/mcu_test.c; echo "le code de retour est $?" 
+./mcu/$ ./build/mcu_test < src/mcu_test.c; echo "le code de retour est $?"
 #include <stdio.h>
 
 19
@@ -122,4 +122,15 @@ après avoir crée l'exécutable à l'aide la commande ``` make mcu_rev```, nous
 dlroW olleH
 
 !dlroW xinU olleH
+```
+
+##### Exercice 7
+
+```
+./mcu/ ./build/mcu_uniq < essai
+Hello World
+Hello World
+Hello World
+Hello World
+Hello World
 ```
