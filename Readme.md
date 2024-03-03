@@ -57,3 +57,11 @@ void copie_tab(char tdst[], char tdsrc[]);
             tdest[i] = tdsrc[i]
     }
 ```
+
+##### Exercice 4
+
+On ajoute d'abord les commandes nécéssaires pour crée les fichiers 
+objets (.o) qui vont nous servir.
+
+mcu_test.c utilise les fonctions putchar etc. On voudrait ajouter un fichier putint.c qui regroupe les fonctions nécéssaires
+utilisaient au thème précédent.
