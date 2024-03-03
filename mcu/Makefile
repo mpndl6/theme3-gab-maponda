@@ -30,6 +30,9 @@ mcu_wl.o: src/mcu_wl.c
 mcu_wl: $(SRCDIR)mcu_wl.o
 	$(CC) $(CFLAGS) $^ -o $(BUILD)$@
 
+mcu_wc: $(SRCDIR)mcu_wc.c
+	$(CC) $(CFLAGS) -o $(BUILD)$@ $^
+
 clean:
 	rm -f $(SRCDIR)*.o
 	rm -f $(SRCDIR)*.gch
