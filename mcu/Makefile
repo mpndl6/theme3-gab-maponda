@@ -3,7 +3,7 @@ SRCDIR = src/obj/
 CC = gcc
 BUILD = build/
 
-all: input output
+all: mcu_test
 
 mcu_fatal.o: src/mcu_fatal.c
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
