@@ -134,3 +134,66 @@ Hello World
 Hello World
 Hello World
 ```
+
+## Structures 
+
+Dans cette partie les commandes s'effectuent dans le repectoire /representation
+``` ./repre/ ``` représentera le chemin absolu vers celui-ci.
+
+##### Exercice 8
+
+```
+./repre/$ gcc exo8.c -o exo8
+./repre/$ ./exo8
+DCBA%  
+```
+Cela affiche les octect de 0x41424344 à l'envers car data et val sont dans une union et donc partagent la même place en mémoire.
+Et étant donné que l'on se situe sur une machine Little eidian le premier bit stocker et le bit de poid faible de val.
+
+```
+./repre/$ ./exo8 > data.bin
+./repre/$ xxd data.bin 
+00000000: 4443 4241 
+```
+On observe ce que ça donne en hexa.
+Le fichier est lisible à l'oeil nu.
+
+###### Exercice 9
+
+```
+./repre/$ gcc output.c -o output
+./repre /$  ./output > etudiant.bin
+```
+Le fichier est illisible à l'oeil nu.
+
+```
+./repre/$ hexdump etudiant.bin
+0000000 28c0 0281 0000 4150                    
+0000008
+```
+Je ne retrouve pas des octects qui représente mon numéro etudiant.
+
+##### Exercice 10
+
+```
+./repre/$ make input 
+gcc --ansi -Wall -pedantic obj/input.o -o input
+./repre/$ make output 
+gcc --ansi -Wall -pedantic output.o -o output
+./repre/$ make test
+./output > etudiant.bin
+./input < etudiant.bin
+192 2.000000
+10432 2.000000
+8464576 2.000000
+42019008 2.000000
+42019008 2.000000
+42019008 2.000000
+42019008 3.250000
+42019008 13.000000
+hexdump ./data.bin
+0000000 4344 4142                              
+0000004
+```
+Je ne comprends pas bien ces données.
+

@@ -10,8 +10,8 @@
 
 int main(void) {
     struct etudiant_s monEtudiant;
-    monEtudiant.numero = 2;
-    monEtudiant.moyenne = 2;
+    monEtudiant.numero = 42019008;
+    monEtudiant.moyenne = 13;
 
     union bloc_u bloc;
     bloc.etu = monEtudiant;
