@@ -4,7 +4,7 @@ CC = gcc
 BUILD =build/
 OBJECT =
 
-all: mcu_test
+all: mcu_test mcu_wc mcu_uniq mcu_revx
 
 mcu_fatal.o: src/mcu_fatal.c
 	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
