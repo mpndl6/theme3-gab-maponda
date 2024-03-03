@@ -1,16 +1,19 @@
 CFLAGS=-ansi -Wall -pedantic
-SRCDIR = src
+SRCDIR = src/
 CC = gcc
 
 all: input output
 
-main: mcu_fatal.o mcu_readl.o mcu_test.c
+mcu_fatal.o: src/mcu_fatal.c
+	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
-output: output.o
+mcu_readl.o: src/mcu_readl.c src/mcu_fatal.h src/mcu_macros.h
+	$(CC) $(CFLAGS) -c $< -o $(SRCDIR)$@
 
-input.o: ../representation/input.c commun.h
+mcu_test.o: src/mcu_test.c src/mcu_macros.h src/mcu_fatal.h src/mcu_readl.h src/mcu_putint.h
+	$(CC) $(CFLAGS) -c $(SRCDIR)$@
 
-output.o: ../representation/output.c commun.h
+main :
 
 test: input output
 	./output > data.bin
