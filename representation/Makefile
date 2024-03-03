@@ -5,15 +5,19 @@ all: input output
 input: input.o
 
 output: output.o
-
+	gcc $< -o $@
 input.o: input.c commun.h
 
 output.o: output.c commun.h
+	gcc output.c -c $<
 
 test: input output
-	./output > data.bin
+	./output > etudiant.bin
 	./input < data.bin
-	hd ./data.bin
+	hexdump ./data.bin
+
+move:
+	mv *.o obj/
 
 clean:
 	rm -f *.o output input data.bin
